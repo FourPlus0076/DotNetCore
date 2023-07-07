@@ -1,0 +1,99 @@
+﻿@model AperioIndia.ProductCategory
+
+@{
+    ViewData["Title"] = "AddProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddProductCategory</h1>
+
+<h4>ProductCategory</h4>
+<hr />
+
+<div class="row">
+    @using (Html.BeginForm("AddProductCategory", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.ID)
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">                       
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName5" class="form-label">Product Category</label>
+                                    @*<input type="text" class="form-control" id="PCName">*@
+                                    @Html.TextBoxFor(m => m.PName, new { @class = "form-control"})
+                                    @Html.ValidationMessageFor(m => m.PName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail5" class="form-label">Product Category Description</label>
+                                    @Html.TextBoxFor(m => m.PDetails, new { @class = "form-control"})
+                                    @Html.ValidationMessageFor(m => m.PDetails, "", new { @class = "text-danger" })
+                                    @* <input type="text" class="form-control" id="PCD">*@
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                 <div class="form-group col-md-6">
+                                    <label for="inputEmail5" class="form-label">About Product Category </label>
+                                    @Html.TextBoxFor(m => m.About, new { @class = "form-control"})
+                                    @Html.ValidationMessageFor(m => m.About, "", new { @class = "text-danger" })
+                                    @* <input type="text" class="form-control" id="PCD">*@
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword5" class="form-label">Product Category Image</label>
+                                    @* <input type="file" class="form-control" id="PCImage" accept="image/*">*@
+                                    @Html.TextBoxFor(m => m.PImage, new { @class = "form-control", @type = "file", @required = "" })
+                                    @Html.ValidationMessageFor(m => m.PImage, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success m-t-20">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+   @* <div class="col-md-4">
+        <form asp-action="AddProductCategory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>           
+            <div class="form-group">
+                <label asp-for="PName" class="control-label"></label>
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="About" class="control-label"></label>
+                <input asp-for="About" class="form-control" />
+                <span asp-validation-for="About" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PDetails" class="control-label"></label>
+                <input asp-for="PDetails" class="form-control" />
+                <span asp-validation-for="PDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PImage" class="control-label"></label>
+                <input asp-for="PImage" type="file" class="form-control" />
+                <span asp-validation-for="PImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>*@
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

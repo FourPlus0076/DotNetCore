@@ -1,0 +1,96 @@
+﻿@model IEnumerable<AperioIndia.ProductCategory>
+
+@{
+    ViewData["Title"] = "ListProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ListProductCategory</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.meta_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.meta_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.meta_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.meta_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
